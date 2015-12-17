@@ -1,0 +1,158 @@
+*{transition: all .1s ease-in;}
+
+body {
+	background-color:#FBF988;
+
+}
+.board {
+	border: 20px solid white;
+	position: absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	margin:auto;
+	width: 30vw;
+	height: 60vh;
+	/*width: 30%;
+	height: 60%;*/
+
+}
+.dash{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 4px solid #ABADAB;
+	background-color: white;
+	box-sizing: border-box;
+
+}
+
+.cell {
+	position: absolute;
+	width: 12.5%;
+	height: 12.5%;
+}
+
+/*============================================================
+make color for cell:
+*/
+.dash .cell:nth-child(-2n+7),
+.dash .cell:nth-child(2n+10):nth-child(-2n+16),
+.dash .cell:nth-child(2n+17):nth-child(-2n+23),
+.dash .cell:nth-child(2n+26):nth-child(-2n+32),
+.dash .cell:nth-child(2n+33):nth-child(-2n+39),
+.dash .cell:nth-child(2n+42):nth-child(-2n+48),
+.dash .cell:nth-child(2n+49):nth-child(-2n+55),
+.dash .cell:nth-child(2n+58) {
+	background-color: #ABADAB;
+}
+
+/*============================================================
+make the board with nth-child calc:
+*/
+/*first row:
+*/
+.dash .cell:nth-child(-8n+57) {
+	left: 0%;
+}
+/*next row:
+*/
+.dash .cell:nth-child(8n+2) {
+	left: 12.5%;
+}
+.dash .cell:nth-child(8n+3) {
+	left: 25%;
+}
+.dash .cell:nth-child(8n+4) {
+	left: 37.5%;
+}
+.dash .cell:nth-child(8n+5) {
+	left: 50%;
+}
+.dash .cell:nth-child(8n+6) {
+	left: 62.5%;
+}
+.dash .cell:nth-child(8n+7) {
+	left: 75%;
+}
+/*last row:
+*/
+.dash .cell:nth-child(8n+8) {
+	left: 87.5%;
+}
+/*first column:
+*/
+.dash .cell:nth-child(-n+8) {
+	top: 0%;
+}
+/*next column:
+*/
+.dash .cell:nth-child(n+9):nth-child(-n+16) {
+	top: 12.5%;
+}
+.dash .cell:nth-child(n+17):nth-child(-n+24){
+	top: 25%;
+}
+.dash .cell:nth-child(n+25):nth-child(-n+32) {
+	top: 37.5%;
+}
+.dash .cell:nth-child(n+33):nth-child(-n+40) {
+	top: 50%;
+}
+.dash .cell:nth-child(n+41):nth-child(-n+48) {
+	top: 62.5%;
+}
+.dash .cell:nth-child(n+49):nth-child(-n+56) {
+	top: 75%;
+}
+/*last column:
+*/
+.dash .cell:nth-child(n+57):nth-child(-n+64) {
+	top: 87.5%;
+}
+/*============================================================
+make checker:
+*/
+/*for two players:
+*/
+.dash .cell:nth-child(-2n+7):after,
+.dash .cell:nth-child(2n+10):nth-child(-2n+16):after,
+.dash .cell:nth-child(2n+17):nth-child(-2n+23):after,
+.dash .cell:nth-child(2n+42):nth-child(-2n+48):after,
+.dash .cell:nth-child(2n+49):nth-child(-2n+55):after,
+.dash .cell:nth-child(2n+58):after {
+	position:absolute;
+	top: 10%;
+	left: 10%;
+	width: 80%;
+	height: 80%;
+	display:block;
+	content: "";
+	border-radius: 50%;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+/*red player:
+*/
+.dash .cell:nth-child(-2n+7):after,
+.dash .cell:nth-child(2n+10):nth-child(-2n+16):after,
+.dash .cell:nth-child(2n+17):nth-child(-2n+23):after {
+	background-color: #E84938;
+}
+/*white player:
+*/
+.dash .cell:nth-child(2n+42):nth-child(-2n+48):after,
+.dash .cell:nth-child(2n+49):nth-child(-2n+55):after,
+.dash .cell:nth-child(2n+58):after {
+	background-color: #F4F5F3;
+}
+/*animation for check:
+*/
+.dash .cell:nth-child(-2n+7):hover:after,
+.dash .cell:nth-child(2n+10):nth-child(-2n+16):hover:after,
+.dash .cell:nth-child(2n+17):nth-child(-2n+23):hover:after,
+.dash .cell:nth-child(2n+42):nth-child(-2n+48):hover:after,
+.dash .cell:nth-child(2n+49):nth-child(-2n+55):hover:after,
+.dash .cell:nth-child(2n+58):hover:after {
+	top: 5%;
+}
